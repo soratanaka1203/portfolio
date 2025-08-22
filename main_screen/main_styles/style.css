@@ -1,0 +1,171 @@
+/* 全体のフォント適用 */
+* {
+    font-family: "DotGothic16", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* ヘッダー */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #eee;
+    align-items: center;
+    position: fixed; /*** ← fixedで固定 ***/
+    width: 100%; 
+    height: 60px; 
+    background: #CCC; 
+    padding: 20px 60px; 
+    box-sizing: border-box;
+    top: 0; 
+    left: 0; 
+    display: flex; 
+    align-items: center; 
+    z-index: 2;
+}
+
+body {
+    padding-top: 60px; /* ヘッダーの高さ分の余白をいれ、うしろの要素が隠れないようにする */
+}
+
+section {
+    position: relative;
+    margin: 10px auto; /* 中央揃え */
+    width: 1500px; /* 最大幅指定 */
+}
+
+h1 {
+    font-size: 200%;
+    text-align: center;
+}
+
+.center {
+    margin: 0 auto; /* 中央揃え */
+    max-width: 50%; /* 最大幅指定 */
+    padding: 2rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+#myhobby {
+    position: absolute;
+    left: 50px;
+}
+
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    gap: 2rem; /* gapを小さくしてレイアウト調整 */
+}
+
+/* スライドショー */
+.bx-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* スライダーの中央揃え */
+.slider {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.slider-div{
+    position: relative;
+}
+
+/* 文字を傾ける */
+.rotated-text {
+    transform: rotate(-30deg);
+    transform-origin: left bottom;
+}
+
+.reverse-rotated-text {
+    transform: rotate(30deg);
+    transform-origin: left bottom;
+}
+
+/* 横に並べる */
+.display-flex {
+    display: flex;
+    gap: 2rem;
+}
+
+/* リンクボタン配置 */
+.detail-link {
+    position: absolute;
+    z-index: 1;
+    right: 10%;
+    top: -10%;
+}
+
+/* 背景装飾 */
+.background-shapes {
+    position: absolute;
+    z-index: -1;
+    transform: scale(0.5);
+    width: 100%;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column; /* ナビゲーション縦並び */
+        gap: 1rem;
+    }
+
+    .slider img {
+        height: auto;
+    }
+
+    .rotated-text,
+    .reverse-rotated-text {
+        font-size: 1.2rem; /* 回転テキストのフォントサイズ調整 */
+    }
+
+    .detail-link {
+        position: relative; /* 絶対配置を解除 */
+        right: auto;
+        top: auto;
+        transform: none;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .center {
+        max-width: 90%; /* 幅を90%に調整 */
+    }
+}
+
+    /* 大きなマージン */
+.large-margin {
+    margin: 150px 300px;
+}
+    
+/* セクション背景用の追加クラス */
+.intersect-shape {
+    left: 60%;
+    bottom: 20%;
+}
+    
+.info-list {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+}

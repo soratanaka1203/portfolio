@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TETRIS</title>
+    <script src="main.js" defer></script>
+    <script src="Designs.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&display=swap" rel="stylesheet">
+    
+
+
+    <style>
+        h1, h2, h3 , div{
+            padding-left: 2rem;
+            font-family: "Dela Gothic One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        div{
+            background-color: rgb(195, 234, 195);
+        }
+
+        body {
+            display: flex;
+        }
+
+        .display_flex {
+            display: flex;
+        }
+
+        .colorful span:nth-child(5n+1) { color: red; }
+        .colorful span:nth-child(5n+2) { color: blue; }
+        .colorful span:nth-child(5n+3) { color: green; }
+        .colorful span:nth-child(5n+4) { color: goldenrod; }
+        .colorful span:nth-child(5n) { color: darkviolet; }
+    </style>
+</head>
+<body>
+    <audio id="bgm" src="Bgm/tetris-theme-korobeiniki-arranged-for-piano-186249.mp3" loop></audio>
+    <audio id="dropSound" src="Bgm/DropSE.mp3"></audio>
+    <audio id="lineClearSound" src="Bgm/lineClearSE.mp3"></audio>
+    <audio id="moveSound" src="Bgm/MoveSE.mp3"></audio>
+    <audio id="gameoverSound" src="Bgm/GameOverSE.mp3"></audio>
+    <canvas id="can"></canvas>
+    <div>
+        <h1 class="colorful">BlockPuzzle</h1>
+        <h2>操作方法</h2>
+        <div class="display_flex">
+            <h3>左:A</h3>
+            <h3>下:S</h3>
+            <h3>右:D</h3>
+            <h3>ドロップ:w</h3>
+            <h3>左回転:j</h3>
+            <h3>右回転:K</h3>
+        </div>
+        <h1>スコア</h1>
+        <h2 id="score">0000000</h2>
+        <h1>ハイスコア</h1>
+        <h2 id="hi_score">0000000</h2>
+        <div class="display_flex">
+            <h2>BGM</h2><a href="https://pixabay.com/ja/music/tetris-theme-korobeiniki-arranged-for-piano-186249/"><p>https://pixabay.com/ja/music/tetris-theme-korobeiniki-arranged-for-piano-186249/</p></a>
+        </div>
+        <div class="display_flex">
+            <h2>効果音</h2>
+            <a href="https://soundeffect-lab.info/sound/button/"><p>効果音ラボ</p></a>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sub_styles/2Dshooting_styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <!-- Prism.jsのCSS（テーマ） -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" rel="stylesheet" />
+    <!-- Prism.js本体 -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <!-- 使用する言語：C# -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-csharp.min.js"></script>
+    <title>sub-screen</title>
+</head>
+<body>
+    <h1>2Dシューティング</h1>
+    
+    <img class="background-shapes" src="images/Rectangle 18.png" alt="" style="left: 0%;
+    top: -15%;">
+
+    <div class="display-flex">
+        <!-- ゲームの動画 -->
+        <iframe width="560" height="315" 
+            src="https://youtu.be/SAuAW1-Lt58" 
+            title="2Dshooting Demo Video"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+
+        
+        <div>
+            <h2>使用したソフト・言語</h2>
+            <ul>
+                <li><p>Unity</p></li>
+                <li><p>C#言語</p></li>
+            </ul>
+            <p>個人製作</p>
+            <p>制作期間：１か月間</p>
+        </div>
+        <div>
+            <a href="https://github.com/soratanaka1203/2Dshooting_public"><h1>GitHubのリポジトリ</h1></a>
+            <a href="https://unityroom.com/games/soratanaka_2dshooting"><h1>UnityRoomのURL</h1></a>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <iframe src="pdf/2Dshooting.pdf" frameborder="0" style="width: 1000px; height: 500px;"></iframe>
+    </div>
+    
+    <h2>なぜこのゲームを作ったか</h2>
+    <div>
+        <p>自分は、シューティングゲームが好きで、弾を発射し敵を倒す一連の仕組みを実装してみたかったので、<br>
+           このゲームを作りました。</p>
+    </div>
+    <h2>こだわったところなど</h2>
+    <div>
+        <p>敵の移動の処理をインターフェイスを使って管理したことです。<br>
+           敵の種類ごとに動きを変えたかったのでインターフェイスを活用しました。</p>
+    </div>
+
+    <div>
+        <h2>実際のコードです↓</h2>
+        <pre>
+         <code class="language-csharp">
+            using System.Collections;
+            using System.Collections.Generic;
+            using UnityEngine;
+            using static IEnemy;
+
+            public class IEnemy : MonoBehaviour
+            {
+                public interface IMovement
+                {
+                    void Move(Transform transform);
+                }
+            }
+
+            public class StraightMovement : IMovement//下に直線運動
+            {
+                public float speed = 80f;// 移動速度
+
+                public void Move(Transform transform)
+                {
+                    transform.Translate(Vector3.down * speed * Time.deltaTime);//下に直線移動
+                }
+            }
+
+            public class ZigzagMovement : IMovement//ジグザグ運動
+            {
+                public float speed = 40f;// 移動速度
+                public float frequency = 5.0f; // ジグザグの周波数
+                public float magnitude = 2.5f;  // ジグザグの幅
+
+                public void Move(Transform transform)
+                {
+                    transform.Translate(Vector3.down * speed * Time.deltaTime);//下に直線移動
+                    transform.Translate(Vector3.right * Mathf.Sin(Time.time * frequency) * magnitude);//左右に移動
+                }
+            }
+            public class CircularMovement : IMovement//円運動
+            {
+                public float speed = 4f;//移動速度
+                public float radius = 2f;//半径
+
+                private float angle = 0.0f;
+
+                public void Move(Transform transform)
+                {       
+                    angle += speed * Time.deltaTime;// 時間経過に応じて角度を増加
+                    float x = Mathf.Cos(angle) * -radius;// X座標の計算
+                    float y = Mathf.Sin(angle) * -radius;// Y座標の計算
+                    transform.position += new Vector3(x, y, transform.position.z);// 新しい位置に移動
+                }
+            }
+
+            public class WaveMovement : IMovement
+            {
+                private float speed = 3f; // 基本の移動速度
+                private float waveFrequency = 2f; // 波の周波数
+                private float waveAmplitude = 2f; // 波の振幅
+                private float elapsedTime = 0f; // 経過時間
+
+                // 中央位置（X軸）を設定
+                private float centerX = 0f;
+
+                public void Move(Transform transform)
+                {
+                    elapsedTime += Time.deltaTime;
+
+                    // 横方向に波状の移動を行い、X軸は中央に向かって進む
+                    float waveOffset = Mathf.Sin(elapsedTime * waveFrequency) * waveAmplitude;
+                    Vector3 movement = new Vector3(waveOffset, -speed * Time.deltaTime, 0);
+
+                    // Y軸は一定の移動、X軸は中央に向かって移動
+                    float targetX = centerX;  // 中央のX座標
+                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetX, transform.position.y, transform.position.z), speed * Time.deltaTime);
+
+                    // 最終的な波の動き
+                    transform.Translate(movement, Space.World);
+                }
+            }
+         </code>
+        </pre>
+    </div>
+</body>
+</html>

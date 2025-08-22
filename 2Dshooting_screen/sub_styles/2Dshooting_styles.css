@@ -1,0 +1,63 @@
+/* 全体のフォント適用 */
+* {
+    font-family: "DotGothic16", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 中央揃え */
+h1,h2,p{
+    text-align: center;
+}
+
+body{
+    position: relative;
+}
+
+.display-flex{
+    display: flex;
+    gap: 2rem;
+}
+
+/* 背景装飾 */
+.background-shapes {
+    position: absolute;
+    z-index: -1;
+    transform: scale(0.7);
+    width: 100%;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column; /* ナビゲーション縦並び */
+        gap: 1rem;
+    }
+
+    .slider img {
+        height: auto;
+    }
+
+    .rotated-text,
+    .reverse-rotated-text {
+        font-size: 1.2rem; /* 回転テキストのフォントサイズ調整 */
+    }
+
+    .detail-link {
+        position: relative; /* 絶対配置を解除 */
+        right: auto;
+        top: auto;
+        transform: none;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .center {
+        max-width: 90%; /* 幅を90%に調整 */
+    }
+}

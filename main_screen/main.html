@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <title>Portfolio</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="../javascript/slider.js" defer></script>
+    <link rel="stylesheet" href="main_styles/style.css">
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <h1>
+            <a href="#top"><img src="images/MyLogo.png" alt="ロゴ" width="150px" height="75px"></a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="#about">自己紹介</a></li> 
+                <li><a href="#myhobby">自分の趣味</a></li>
+                <li><a href="#ourworks">作品</a></li>
+                <li><a href="#experience_and_focus">経験・力を入れていたこと</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- スライドショー -->
+    <ul class="slider">
+        <li><img src="images/2Dshooting-boss-1.png" alt="スライドショー画像1"></li>
+        <li><img src="images/2Dshooting-scene-1.png" alt="スライドショー画像2"></li>
+        <li><img src="images/tetris 3.png" alt="スライドショー画像3"></li>
+        <li><img src="images/OreHunter_5.png" alt="スライドショー画像4"></li>
+    </ul>
+
+    <!-- 自己紹介 -->
+    <section>
+
+        <img src="images/Intersect.png" alt="" class="background-shapes" style="left: 40%;top: -70%;">
+        
+
+        <div class="display-flex" style="margin: 150px 300px;">
+    
+            <div class="display-flex" style="margin: 0px 0.2%;">
+
+                <div>
+                    <h1 id="about" class="rotated-text">自己紹介</h1>
+                    <img src="images/Photographs of yourself.JPG" alt="自分の顔" width="200px" heigth="200px">
+                </div>
+                
+                <div>
+                    <ul style="text-align: left;">
+                        <li><p>名前：田中蒼空</p></li>
+                        <li><p>性別：男</p></li>
+                        <li><p>年齢：１７</p></li>
+                        <li><p>好きなこと：ゲーム全般、漫画アニメ</p></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <ul style="text-align: left;">
+                        <li><p>好きな食べ物：オムライス</p></li>
+                        <li><p>性格：のんびりしていて優しいとよく言われます</p></li>
+                        <li><p>大事にしていること：楽しむこと</p></li>
+                        <li><p>扱える言語,ソフト：</p><p>Ｃ＃言語、Unity、JavaScript、<br>HTML、CSS、Aseprite<br>github、Sourcetree、visual studio</p></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="center" style="margin:0.2%;">
+                <p>ドット絵を練習中です！</p>
+                <img src="images/apple_50px.png" alt="リンゴのドット絵" width="128" height="128">
+                <p>初めて書いたリンゴのドット絵</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 自分の趣味 -->
+    <section>
+        <img src="images/Star 1.png" alt="" class="background-shapes" style="top: -150%; right: 40%;">
+        <h1 id="myhobby" class="rotated-text">自分の趣味</h1>
+        <div class="display-flex center">
+            <div>
+                <p>自分の好きな食べ物はオムライスです！</p>
+                <img src="images/omelette.JPG" alt="オムライスの画像" width="200px" heigth="300px">
+            </div>
+            <div>
+                <p>最近のお気に入りのボードゲームはコレ！<br>
+                   「スノーマンダイス」</p>
+                <img src="images/boardGame.jpg" alt="ボードゲームの画像"width="250px" heigth="250px">
+                <a href="https://www.amazon.co.jp/dp/B07ZTFTDR2?ref=ppx_yo2ov_dt_b_fed_asin_title">amazonのリンクに飛べます</a>
+            </div>
+            <div>
+                <p>自分の好きなアニメは<br>「魔法陣グルグル」です！</p>
+                <img src="images/anime.jpg" alt="好きなアニメの画像"width="300px" heigth="350px">
+                <a href="http://guruguru-anime.jp/">公式ホームページ</a>
+            </div>
+        </div>
+
+        <div class="display-flex center">
+            <div>
+                <p>最近プレイしたゲームは<br>「Shape of Dreams: Prologue」</p>
+                <img src="images/FavoriteGame.png" alt="最近遊んだゲームの画像">
+                <a href="https://store.steampowered.com/app/3275270/Shape_of_Dreams_Prologue/">無料でできます！</a>
+            </div>
+            <div>
+                <p>自分のお気に入りのゲームです！<br>「Super Raft Boat Togethe」</p>
+                <img src="images/FavoriteGame2.png" alt="好きなゲームの画像">
+                <a href="https://store.steampowered.com/app/1955340/Super_Raft_Boat_Together/">Steamのページに飛びます</a>
+            </div>
+    </section>
+
+    <!-- 作品 -->
+    <section>
+        <h1 id="ourworks" class="rotated-text" style="position: absolute; width: 20%;">作品</h1>
+        <div class="slider-div">
+            <a href="../tetris_screen/tetris.html"><p class="reverse-rotated-text detail-link">詳細はこちら！</p></a>
+            <ul class="slider">
+                <li><img src="images/tetris 1.png" alt="スライドショー画像1"></li>
+                <li><img src="images/tetris 2.png" alt="スライドショー画像2"></li>
+                <li><img src="images/tetris 3.png" alt="スライドショー画像3"></li>
+                <li><img src="images/tetris 4.png" alt="スライドショー画像4"></li>
+            </ul>
+            <h2 class="center">BlockPuzzle</h2>
+        </div>
+        <div class="slider-div">
+            <a href="../2Dshooting_screen/2Dshooting.html"><p class="reverse-rotated-text detail-link">詳細はこちら！</p></a>
+            <ul class="slider">
+                <li><img src="images/2Dshooting-title.png" alt="スライドショー画像1"></li>
+                <li><img src="images/2Dshooting-ope-1.png" alt="スライドショー画像2"></li>
+                <li><img src="images/2Dshooting-ope-2.png" alt="スライドショー画像3"></li>
+                <li><img src="images/2Dshooting-scene-1.png" alt="スライドショー画像5"></li>
+                <li><img src="images/2Dshooting-scene-2.png" alt="スライドショー画像6"></li>
+                <li><img src="images/2Dshooting-boss-1.png" alt="スライドショー画像7"></li>
+                <li><img src="images/2Dshooting-boss-2.png" alt="スライドショー画像8"></li>
+                <li><img src="images/2Dshooting-gameOver-1.png" alt="スライドショー画像9"></li>
+                <li><img src="images/2Dshooting-gameOver-2.png" alt="スライドショー画像10"></li>
+                <li><img src="images/2Dshooting-ranking.png" alt="スライドショー画像11"></li>
+            </ul>
+            <h2 class="center">2Dシューティング</h2>
+        </div>
+
+        <img src="images/Rectangle 16.png" alt="" class="background-shapes" style="top: 5%; right: 40%;">
+
+        <div class="slider-div">
+            <a href="../OreHumter_screen/oreHunter.html"><p class="reverse-rotated-text detail-link">詳細はこちら！</p></a>
+            <ul class="slider">
+                <li><img src="images/OreHunter_1.png" alt="スライドショー画像1"></li>
+                <li><img src="images/OreHunter_2.png" alt="スライドショー画像2"></li>
+                <li><img src="images/OreHunter_3.png" alt="スライドショー画像3"></li>
+                <li><img src="images/OreHunter_4.png" alt="スライドショー画像4"></li>
+                <li><img src="images/OreHunter_5.png" alt="スライドショー画像5"></li>
+            </ul>
+            <h2 class="center">チーム制作：Ore Hunter (オー ハンター)</h2>
+        </div>
+
+        <img src="images/Ellipse 2.png" alt="" class="background-shapes" style="top: 85%; right: 40%;;">
+    </section>
+
+    <!-- 経験・力を入れていたこと -->
+    <section>
+        <div class="center">
+            <div>
+                <h1 id="experience_and_focus">経験・力を入れていたこと</h1>
+            <p>自分は、常に何をしたら良くなるのかを考えながらゲーム制作に取り組んできました。<br>
+                そのために、新しい知識を取り入れ、実際に使用してきました。<br>
+                分からないことでも、自分で調べたり、人に聞いたりすることで自分のスキルアップに、<br>
+                つながると考えています。<br>
+                </p>
+            </div>
+            
+            <img src="images/Polygon 3.png" alt="" class="background-shapes" style="top: -200%; left: 70%;">
+
+            <div>
+                <h2>これからは！</h2>
+            <p>自分は、まだまだ分からないことが多いので、引き続き新しい知識を取り入れるため勉強を欠かさず<br>
+                常に昨日の自分よりも、一歩前へ成長した自分でいられるようにしたいと考えています。<br>
+                そして、一人でも多くの人の時間が豊かになるような、そんなゲームを作りたいと思います。<br>
+                自分は、マルチプレイができるゲームが好きなので、今後はそのようなゲームを中心に個人製作<br>
+                も頑張ろうと思います。</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
