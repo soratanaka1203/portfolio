@@ -7,6 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <!-- Prism.jsのCSS（テーマ） -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" rel="stylesheet" />
+    <!-- Prism.js本体 -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <!-- 使用する言語：C# -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-csharp.min.js"></script>
     <title>sub-screen</title>
 </head>
 <body>
@@ -38,6 +44,26 @@
         <h1>こだわったところ</h1>
         <p>このゲームで私がこだわったところは、２次元配列を活用しブロックの管理を行ったところです。<br>
         特に、ブロックを回転させる処理は行列の転置を使って実装することができたので良かったです。</p>
+    </div>
+    <div>
+         <h2>実際のコードです↓</h2>
+        <pre>
+         <code class="language-csharp">
+            // ▼ テトロミノの右回転（行列の転置＋行の反転を応用）
+            function rightRotate() {
+                let nTetoro = [];
+                for (let y = 0; y < tetoro_size; y++) {
+                    nTetoro[y] = [];
+                    for (let x = 0; x < tetoro_size; x++) {
+                        // 転置（y,x → x,y）＋ 行の反転（tetoro_size - x - 1）
+                        nTetoro[y][x] = tetoro.shape[tetoro_size - x - 1][y];
+                    }
+                }
+                return { shape: nTetoro, color: tetoro.color };
+            }
+
+         </code>
+        </pre>
     </div>
 </body>
 </html>
