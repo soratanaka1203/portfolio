@@ -7,6 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <!-- Prism.jsのCSS（テーマ） -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" rel="stylesheet" />
+    <!-- Prism.js本体 -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <!-- 使用する言語：C# -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-csharp.min.js"></script>
     <title>sub-screen</title>
 </head>
 <body>
@@ -65,6 +71,52 @@
         そのおかげで、アドバイスをもらうことができ、順調に制作を進めることができました。<br>
         また、チームの方との連携がうまく取れずにトラブルを起こしてしまうこともあったので、<br>
         トラブルを防ぐためにもコミュニケーションは大事だと感じました。
+    </div>
+    <div>
+        <pre>
+         <code class="language-csharp">
+            // マップをランダム生成（外周＝壁、内部＝地面、ランダムで入口配置）
+            private void GenerateRandomMap()
+            {
+                for (int y = 0; y < map.GetLength(0); y++)
+                {
+                    for (int x = 0; x < map.GetLength(1); x++)
+                    {
+                        if (y == 0 || y == map.GetLength(0) - 1 || x == 0 || x == map.GetLength(1) - 1)
+                        {
+                            map[y, x] = 0; // 壁
+                            if (entranceFlag && Random.Range(0, 20) == 0)
+                            {
+                                map[y, x] = 2; // 入り口
+                                entrancePlace = new Vector3Int(x, y, 0);
+                                entranceFlag = false;
+                            }
+                        }
+                        else map[y, x] = 1; // 地面
+                    }
+                }
+            }
+
+            // 鉱石クラスターを配置（確率で種類を変化）
+            void PlaceOreClusters(int clusterCount, int clusterSize)
+            {
+                for (int k = 0; k < clusterCount; k++)
+                {
+                    int startX = Random.Range(1, map.GetLength(1) - 1);
+                    int startY = Random.Range(1, map.GetLength(0) - 1);
+
+                    int ore = (Random.Range(0, 100) < 40) ? 3 : 4; // 鉄 or 銅
+
+                    for (int l = 0; l < clusterSize; l++)
+                    {
+                        int x = Mathf.Clamp(startX + Random.Range(-1, 2), 1, map.GetLength(1) - 2);
+                        int y = Mathf.Clamp(startY + Random.Range(-1, 2), 1, map.GetLength(0) - 2);
+                        if (map[y, x] == 1) map[y, x] = ore;
+                    }
+                }
+            }
+         </code>
+        </pre>
     </div>
 </body>
 </html>
